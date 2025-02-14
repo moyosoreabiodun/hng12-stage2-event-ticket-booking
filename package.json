@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://moyosoreabiodun.github.io/hng12-stage2-event-ticket-booking",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
