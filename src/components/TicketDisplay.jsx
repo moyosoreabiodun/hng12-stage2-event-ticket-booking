@@ -8,16 +8,18 @@ function TicketDisplay({ formData, ticketType, setStep, ticketQuantity }) {
     
     return (
       <div class="container">
+        <div className="booked-ticket-heading">
         <h1>Your Ticket is Booked!</h1>
         <p>Check your email for a copy or you can <strong>download</strong></p>
-        
-        <div>
+        </div>
+
+        <div className="ticket-details">
             <h1>Techember Fest "25</h1>
             <p>📍 Miniminimanimo, Lagos</p>
             <p>📅March 15, 2025 | 7:00 PM</p>
             {formData.image && <img src={formData.image} alt="Uploaded" width="100" />}
             
-            <div>
+            <div className="attendee-ticket">
                 <p><span>Enter your name</span> <br/> {formData.name}</p>
                 <p><span>Enter your email*</span> <br/> {formData.email}</p>
                 <p><span> Ticket Type:</span> <br/> {ticketType}</p>
@@ -25,19 +27,17 @@ function TicketDisplay({ formData, ticketType, setStep, ticketQuantity }) {
                 <p><span> Special Request?</span> <br/> {formData.specialRequest}</p>
             </div>
         </div>
-        <div>
-            <Barcode value={`${formData.email}-${ticketType}-${ticketQuantity}`} />
+        <div className="barcode-container">
+            <Barcode className="barcode" value={`${formData.email}-${ticketType}-${ticketQuantity}`} />
         </div>
         <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-            <button 
-            onClick={() => setStep(1)} 
-            style={{ padding: "10px 15px", background: "#28A770", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}>
-            Book Another Ticket
+            <button className="navigation-button-cancel"
+            onClick={() => setStep(1)}>
+              Book Another Ticket
             </button>
 
-            <button 
-            onClick={handleDownload} 
-            style={{ padding: "10px 15px", background: "#28A745", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}>
+            <button className="navigation-button-next"
+            onClick={handleDownload} >
             Download Ticket
             </button>
         </div>

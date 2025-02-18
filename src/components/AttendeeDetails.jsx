@@ -21,9 +21,9 @@ function AttendeeDetails({ setStep, formData, setFormData, ticketType }) {
   };
 
   return (
-    <div>
-      <label>Upload Image:</label>
-      <div
+    <div className="container">
+      <label>Upload Profile Photo</label>
+      <div className="photo-container"
         onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
         onDragLeave={() => setDragging(false)}
         onDrop={handleDrop}
@@ -49,18 +49,22 @@ function AttendeeDetails({ setStep, formData, setFormData, ticketType }) {
         accept="image/*" 
         onChange={(e) => handleImageUpload(e.target.files[0])} 
       />
+      <div className="line-break"></div>
+      <div className="label-input">
+      <label className="attendee-label">Enter your Name</label>
+      <input className="attendee-input" type="text" name="name" value={formData.name} onChange={handleInputChange} />
+      </div>
 
-      <label>Enter your Name</label>
-      <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
+      <label className="attendee-label">Enter your Email*</label>
+      <input className="attendee-input" type="email" name="email" placeholder="📧hello@avioflagos.io" value={formData.email} onChange={handleInputChange} required />
 
-      <label>Enter your Email*</label>
-      <input type="email" name="email" placeholder="📧hello@avioflagos.io" value={formData.email} onChange={handleInputChange} required />
+      <label className="attendee-label">Special Request?</label>
+      <textarea className="attendee-input" name="specialRequest" value={formData.specialRequest} onChange={handleInputChange} rows={3}></textarea>
 
-      <label>Special Request?</label>
-      <textarea name="specialRequest" value={formData.specialRequest} onChange={handleInputChange}></textarea>
-
-      <button onClick={() => setStep(1)}>Back</button>
-      <button onClick={() => formData.email ? setStep(3) : alert("Email is required!")}>Get My {ticketType} Ticket</button>
+      <div className="navigation-buttons">
+        <button className="navigation-button-cancel" onClick={() => setStep(1)}>Back</button>
+        <button className="navigation-button-next" onClick={() => formData.email ? setStep(3) : alert("Email is required!")}>Get My {ticketType} Ticket</button>
+      </div>
     </div>
   );
 }

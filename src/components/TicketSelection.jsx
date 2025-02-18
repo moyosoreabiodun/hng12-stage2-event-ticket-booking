@@ -8,24 +8,21 @@ function TicketSelection({ setStep, ticketType, setTicketType, ticketQuantity, s
             <p>Join us for an unforgettable experience at <br/>Techember Fest "25! Secure your spot now</p>
             <p><span>📍 Miniminimanimo, Lagos</span> || <span>March 15, 2025 | 7:00 PM</span></p>
         </div>
-
+        <div className="line-break"></div>
         <label>Select Ticket Type:</label>
       <div className="ticketButtons">
-        <button 
+        <button className="ticketButton"
           onClick={() => setTicketType("Free")} 
-          style={{ background: ticketType === "Free" ? "#007BFF" : "#ccc" }}
         >
           <strong>Free</strong> <p>REGULAR ACCESS<br/>20/52</p>
         </button>
-        <button 
+        <button className="ticketButton"
           onClick={() => setTicketType("VIP")} 
-          style={{ background: ticketType === "VIP" ? "#007BFF" : "#ccc" }}
         >
           <strong>$150</strong> <p>VIP ACCESS<br/>20/52</p>
         </button>
-        <button 
+        <button className="ticketButton"
           onClick={() => setTicketType("VVIP")} 
-          style={{ background: ticketType === "VVIP" ? "#007BFF" : "#ccc" }}
         >
           <strong>$150</strong> <p>VVIP ACCESS<br/>20/52</p>
         </button>
@@ -38,8 +35,10 @@ function TicketSelection({ setStep, ticketType, setTicketType, ticketQuantity, s
           ))}
         </select>
           
-        <button onClick={() => { setTicketType(""); setTicketQuantity(1); }}>Cancel</button>
-        <button onClick={() => setStep(2)} disabled={!ticketType}>Next</button>
+        <div className="navigation-buttons">
+          <button className="navigation-button-cancel" onClick={() => { setTicketType(""); setTicketQuantity(1); }}>Cancel</button>
+          <button className="navigation-button-next" onClick={() => setStep(2)} disabled={!ticketType}>Next</button>
+        </div>
       </div>
     );
   }

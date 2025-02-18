@@ -22,25 +22,27 @@ function App() {
   return (
     <div>
       <Navbar className="nav-bar" />
-      <ProgressBar className="progress-bar" step={step} />
-      {step === 1 && (
-        <TicketSelection 
-          setStep={setStep} 
-          ticketType={ticketType} 
-          setTicketType={setTicketType} 
-          ticketQuantity={ticketQuantity} 
-          setTicketQuantity={setTicketQuantity} 
-        />
-      )}
-      {step === 2 && (
-        <AttendeeDetails 
-          setStep={setStep} 
-          formData={formData} 
-          setFormData={setFormData}
-          ticketType={ticketType} 
-        />
-      )}
-      {step === 3 && <TicketDisplay formData={formData} ticketType={ticketType} ticketQuantity={ticketQuantity} />}
+      <div className='main-content container'>
+        <ProgressBar className="progress-bar" step={step} />
+        {step === 1 && (
+          <TicketSelection 
+            setStep={setStep} 
+            ticketType={ticketType} 
+            setTicketType={setTicketType} 
+            ticketQuantity={ticketQuantity} 
+            setTicketQuantity={setTicketQuantity} 
+          />
+        )}
+        {step === 2 && (
+          <AttendeeDetails 
+            setStep={setStep} 
+            formData={formData} 
+            setFormData={setFormData}
+            ticketType={ticketType} 
+          />
+        )}
+        {step === 3 && <TicketDisplay formData={formData} ticketType={ticketType} ticketQuantity={ticketQuantity} />}
+      </div>
     </div>
   );
 }

@@ -5,17 +5,17 @@ function Navbar() {
 
   return (
 
-    <nav style={{ display: "flex", justifyContent: "space-between", padding: "10px", borderBottom: "1px solid #ddd" }}>
-        <img src="logo.png" alt="Logo" width="50" /> 
+    <nav className="nav-bar">
+        <img src="../public/ticz.svg" alt="Logo" width="50" /> 
         
-        <div> 
-            <button onClick={() => setActive("events")}>Events</button>
-            <button onClick={() => setActive("my-tickets")}>My Tickets</button>
-            <button onClick={() => setActive("about-project")}>About Project</button>
+        <div className="navbar-buttons"> 
+            <button className="navbar-button" onClick={() => setActive("events")}>Events</button>
+            <button className="navbar-button" onClick={() => setActive("my-tickets")}>My Tickets</button>
+            <button className="navbar-button" onClick={() => setActive("about-project")}>About Project</button>
         </div>
 
         <div>
-            <button>My Tickets →</button>
+            <button className="my-tickets-button">My Tickets →</button>
         </div>
   </nav>
   );

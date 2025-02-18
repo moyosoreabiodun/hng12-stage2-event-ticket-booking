@@ -23,12 +23,12 @@ function ProgressBar({ step }) {
         </div>
   
         {/* Progress Bar */}
-        <div style={{ background: "#ddd", height: "6px", borderRadius: "5px" }}>
+        <div style={{ background: "#0E464F", height: "4px", borderRadius: "5px", width: "100%",  }}>
           <div
             style={{
               width: `${progress}%`,
-              height: "6px",
-              background: "#007BFF",
+              height: "4px",
+              background: "#24A0B5",
               borderRadius: "5px",
               transition: "width 0.3s ease"
             }}
